@@ -1,0 +1,131 @@
+.dictionary-page .content{
+    display: flex;
+    // gap: 40px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .add-new-word-card{
+        background-color: white;
+        width: 210px;
+        height: 100px;
+        border-radius: 5px;
+        border: 3px solid #ccc;
+        outline: 3px solid white;
+        cursor: pointer;
+        div.new-word-appender-icon{
+            padding: 15px;
+            
+            
+            svg{
+                height: 40px;
+                margin: auto;
+                width: 100%;
+                color: #ccc;
+            }
+            span{
+                padding: 5px;
+                display: block;
+                margin: auto;
+                width: fit-content;
+            }
+        }
+    }
+    div.add-new-word-card:hover{
+        border-color: rgb(78, 78, 78);
+        div.new-word-appender-icon{
+            svg{
+                color: rgb(78, 78, 78);
+            }
+        }
+    }
+
+    .word-list{
+        background-color: var(--chewode-blue);
+        padding: 10px;
+        width: 450px;
+        margin: 20px auto;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+         -khtml-user-select: none; /* Konqueror HTML */
+           -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none;
+        .word-item{
+            cursor: pointer;
+            background-color: white;
+            border-radius: 5px;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 5px;
+            .word-left-side{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                overflow: hidden;
+                .word-word{
+                    font-weight: bold;
+
+                }
+                .word-word,.word-translation{
+                    padding: 2px 5px;
+                    overflow: hidden;
+                    display: inline;
+                    // width: 100%;
+                    white-space: nowrap;
+                }
+            }
+            .word-right-side{
+                display: flex;
+                gap: 5px;
+                align-items: center;
+                .word-points{
+
+                    // padding: 5px;
+                    // width: 1em;
+                    width: 35px;
+                    height: 35px;
+                    // height: 1em;
+                    display: flex;
+                    // flex-direction: ;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: var(--chewode-blue);
+                    color: white;
+                    border-radius: 5px;
+                }
+                .update-word-button{
+                    color: black;
+                    cursor: pointer;
+                    display: none;
+                }
+                .delete-word-button{
+                    color: red;
+                    cursor: pointer;
+                    display: none;
+                }
+            }
+        }
+
+        .word-item:hover{
+            // background-color: red;
+            // padding: 2px;
+            // transform: scale(1.02);
+            .word-right-side{
+                // display: flex;
+                .delete-word-button{
+                    display: block;
+                }
+                .update-word-button{
+                    display: block;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,155 @@
+
+
+.header-wrapper{
+    
+    
+    background-color: var(--chewode-blue);
+    .header{
+        width: 1000px;
+        margin: auto;
+        color: var(--biloba-flower-font);
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        .left-section{
+            display: flex;
+            align-items: center;
+            .logo{
+                width: 2em;
+                height: 2em;
+                background-color: var(--river-bed);
+                padding: 0.5em;
+                border-radius: 5px;
+                cursor: pointer;
+                .logo-img{
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+            }
+            .dictionary-selector{
+                display: flex;
+                margin-left:1em;
+                align-items: center;
+                .my-menu{
+                    background-color: var(--river-bed);
+
+                    width: 170px;
+                    border: none;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    .dictionary-option{
+                        padding: 10px;
+                        
+                        font-size: 1em;
+                        display: flex;
+                        align-items: center;
+
+                        .circle{
+                            // background-color: rgb(214, 148, 148);
+                            border-radius: 50px;
+                            // display: inline;
+
+                            // padding: 5px;
+                            margin-right: 5px;
+                            height: 20px;
+                            width: 20px;
+                            overflow: hidden;
+                            display: inline-block;
+                            position: relative;
+                            svg{
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                transform: translate(22%,15%);
+                            }
+                            img{
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                transform: translateX(-25%);
+                                // max-width: 20px;
+                                max-height: 20px;
+                            }
+                        }
+                    }
+                    
+
+                }
+                .menu-button{
+                    border-radius: 5px;
+                    padding: 10px;
+                    background-color: var(--river-bed);
+                    border: none;
+                    width: 170px;
+                    cursor: pointer;
+                    color: white;
+                    font-size: 1em;
+                    display: flex;
+                    align-items: center;
+                    // gap: 5px;
+                    position: relative;
+                    
+                    .dictionary-selector-dropdown-icon{
+                        // color: red;
+                        // width: 10px;
+                        margin-left: 10px;
+                        // height: 1em;
+                        // float: right;
+                        position: absolute;
+                        right: 15px;
+
+                    }
+                    .circle{
+                        // background-color: rgb(214, 148, 148);
+                        border-radius: 50px;
+                        // display: inline;
+
+                        // padding: 5px;
+                        margin-right: 5px;
+                        height: 20px;
+                        width: 20px;
+                        overflow: hidden;
+                        display: inline-block;
+                        position: relative;
+                        svg{
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            transform: translate(22%,15%);
+                        }
+                        img{
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            transform: translateX(-25%);
+                            // max-width: 20px;
+                            max-height: 20px;
+                        }
+                    }
+                }
+                
+                
+                
+            }
+
+            
+            
+        }
+        .right-section{
+            .top-navbar{
+                ul{
+                    list-style-type: none;
+                    display: flex;
+        
+                    gap: 20px;
+                    li{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        
+    }
+}

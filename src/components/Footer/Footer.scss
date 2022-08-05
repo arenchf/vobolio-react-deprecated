@@ -1,0 +1,17 @@
+
+
+.footer-wrapper{
+    height: 50px; /* the footer's total height */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--chewode-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .footer{
+        color: white;
+        font-weight: bold;
+    }
+}
+

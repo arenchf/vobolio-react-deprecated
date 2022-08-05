@@ -1,0 +1,91 @@
+
+.login-page-content{
+    // width: 300px;
+    // width: 250px;
+    width: max-content;
+    // background-color: yellow;
+    margin: auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 5px;
+    
+    // form{
+    //     width: max-content;
+    //     margin: auto;
+    // }
+    
+    .form-wrapper{
+        
+        form{
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            label{
+                align-self: flex-start;
+                display: block;
+                // margin-top: 10px;
+                margin-bottom: 5px;
+                font-weight: bold;
+                // font-size: 1.1em;
+                // padding: 0 10px;
+                .error{
+                    color: var(--danger);
+                }
+            }
+            input{
+                display: block;
+                width: 300px;
+                align-self: flex-start;
+                margin-bottom: 20px;
+            }
+            input#password{
+                margin-bottom: 0px;
+            }
+            .password-forgot{
+                align-self: flex-end;
+                margin-bottom: 20px;
+                font-size: 0.8em;
+                cursor: pointer;
+            }
+            button{
+                // margin-top: 10px;
+    
+                margin-bottom: 20px;
+                // align-self: center;
+                // width: 100px;
+                // align-self: center;
+                padding: 5px;
+                align-self: center;
+                border-radius: 20px;
+                border: 0;
+                background-color: var(--river-bed);
+                color: white;
+                padding: 10px 50px;
+                font-weight: bold;
+                // font-size: 1.1em;
+    
+                cursor: pointer;
+            }
+        }
+        
+        
+    }
+    .have-account{
+        // display: flex;
+        // flex-direction: column;
+        span{
+            // display: block;
+            cursor: pointer;
+            color: var(--river-bed);
+            font-weight: bold;
+        }
+    }
+    .error-detail{
+        width: 200px;
+        // color: var(--danger);
+        background-color: var(--danger);
+        padding: 10px;
+        
+    }
+    
+}

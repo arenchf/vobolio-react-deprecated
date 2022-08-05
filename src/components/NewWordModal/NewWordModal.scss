@@ -1,0 +1,55 @@
+.new-word-modal{
+    position: absolute;
+    top:20%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 400px;
+    padding: 20px;
+    max-width: 800px;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    .modal-close{
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+    }
+    h2.modal-title{
+        margin: 0;
+        padding: 0;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0 0 0 ;
+        label{
+            display: block;
+            // margin-top: 20px;
+            margin-bottom: 5px;
+        }
+        input{
+            display: block;
+            // margin-top: 10px;
+            margin-bottom: 20px;
+            // width: fit-content;
+        }
+       
+        button{
+            width: fit-content;
+            align-self: flex-end;
+            margin-top: 10px;
+            border-radius: 20px;
+            border: 0;
+            background-color: var(--river-bed);
+            color: white;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+}
+
+.new-word-modal:focus{
+    outline: none;
+}
