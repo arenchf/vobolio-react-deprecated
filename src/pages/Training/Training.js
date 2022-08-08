@@ -14,7 +14,7 @@ function Training() {
     const [rightWord,setRightWord]= useState(null)
     const [wrongAnswer,setWrongAnswer] = useState(null)
     const [rightAnswer,setRightAnswer] = useState(null)
-
+    const [complete,setComplete] = useState(false)
     useEffect(()=>{
         console.log(dictionaryId)
 
@@ -28,6 +28,7 @@ function Training() {
 
         }).catch(error=>{
             console.error(error)
+            setComplete(true)
         })
 
     },[])
@@ -46,6 +47,7 @@ function Training() {
         
                 }).catch(error=>{
                     console.error(error)
+                    setComplete(true)
                 })
 
                 setRightAnswer(null)
@@ -61,6 +63,11 @@ function Training() {
     
                 if(!wrongAnswer){
                     console.log("SUCCESSFULL TRAINED")
+                    axiosInstance.put(`dictionaries/${dictionaryId}/words/${rightWord.id}/train/`).then((response)=>{
+                        console.log(response)
+                    }).catch((error)=>{
+                        console.error(error)
+                    })
                 }
                 setWrongAnswer(null)
                 setRightAnswer(e.currentTarget.getAttribute("question_index"))
@@ -97,7 +104,11 @@ function Training() {
     <div className='training-page'>
         <Header></Header>
         <div className='content'>
-        {words?<div className='training-word-wrapper'>
+        {complete?
+        <>
+        <h2>No Words found. You have learned all the words in your dictionary!</h2>
+        </>
+        :words?<div className='training-word-wrapper'>
             <div className='word'>{rightWord?<>{rightWord.word}</>:<>Loading</>}</div>
             <div className='answers'>
                 {words?<>
@@ -108,7 +119,8 @@ function Training() {
                 
             </div>
 
-        </div>:<h2>LOADING</h2>}
+        </div>:<h2>LOADING</h2>
+        }
         </div>
         <Footer></Footer>
     </div>
