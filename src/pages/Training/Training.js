@@ -1,25 +1,22 @@
-import React,{useEffect,useContext,useState} from 'react'
-import { Navigate, useParams } from 'react-router-dom'
+import React,{useEffect,useState} from 'react'
+import { useParams } from 'react-router-dom'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import axiosInstance from '../../axios'
-import AuthContext from '../../context/AuthContext'
 
 import './Training.scss'
 
 function Training() {
     const {dictionaryId} = useParams()
-    // const {auth} = useContext(AuthContext)
+
     const [words,setWords] = useState(null)
     const [rightWord,setRightWord]= useState(null)
     const [wrongAnswer,setWrongAnswer] = useState(null)
     const [rightAnswer,setRightAnswer] = useState(null)
     const [complete,setComplete] = useState(false)
     useEffect(()=>{
-        console.log(dictionaryId)
 
         axiosInstance.get(`/dictionaries/${dictionaryId}/training/`).then(response=>{
-            console.log(response.data)
             setWords(shuffle(response.data.options_words))
             let min = 0;
             let max = 3;
@@ -59,12 +56,10 @@ function Training() {
     const handleAnswer = (e) =>{
         if(!rightAnswer){
             if(e.currentTarget.getAttribute("question_id") === rightWord.id.toString()){
-                console.log("RIGHT")
-    
+   
                 if(!wrongAnswer){
-                    console.log("SUCCESSFULL TRAINED")
                     axiosInstance.put(`dictionaries/${dictionaryId}/words/${rightWord.id}/train/`).then((response)=>{
-                        console.log(response)
+
                     }).catch((error)=>{
                         console.error(error)
                     })
@@ -74,7 +69,6 @@ function Training() {
                 
                 
             }else{
-                console.log("SETTING WRONG ANSWER")
                 setWrongAnswer(e.currentTarget.getAttribute("question_index"))
             }
         }
@@ -86,7 +80,7 @@ function Training() {
         let currentIndex = array.length,  randomIndex;
       
         // While there remain elements to shuffle.
-        while (currentIndex != 0) {
+        while (currentIndex !== 0) {
       
           // Pick a remaining element.
           randomIndex = Math.floor(Math.random() * currentIndex);

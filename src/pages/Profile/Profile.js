@@ -19,16 +19,12 @@ function Profile() {
 
 
   useEffect(()=>{
-    console.log(auth.user)
     axiosInstance.get(`/users/${auth.user.user_id}/`).then((response)=>{
-      console.log("profile",response.data)
       setProfile(response.data)
     }).catch((error)=>{
       console.error(error)
     })
     axiosInstance.get(`/users/${auth.user.user_id}/dictionaries/`).then((response)=>{
-      console.log(response.data)
-      // setUserDictionaries(response.data)
       var totalWords = 0
       var learnedWords = 0
       response.data.forEach(dictionary => {
@@ -50,8 +46,6 @@ function Profile() {
   }
 
   const handleProfileFormInput = (e) =>{
-    console.log(e)
-
     setNewProfile({...newProfile,[e.target.name]:e.target.value})
 
   }
@@ -59,7 +53,6 @@ function Profile() {
   const saveProfile = (e)=>{
     e.preventDefault()
     axiosInstance.put(`/users/${auth.user.user_id}/`,newProfile).then((response)=>{
-      console.log(response)
       navigate(0)
     }).catch((error)=>{
       console.log(error)

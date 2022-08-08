@@ -1,14 +1,11 @@
-import React, { useEffect, useState, useContext, useRef } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import axiosInstance from '../../axios'
 import './Home.scss'
 import Header from '../../components/Header/Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faUsersRectangle, faUpload, faPlus,faXmark, faPen, faTrashCan,faTableTennisPaddleBall } from '@fortawesome/free-solid-svg-icons';
-import Modal from 'react-modal';
-
-import {LanguageList, Flags} from '../../img/Flags';
+import {faPlus, faTrashCan,faTableTennisPaddleBall } from '@fortawesome/free-solid-svg-icons';
+import {Flags} from '../../img/Flags';
 import NewDictionaryModal from '../../components/NewDictionaryModal/NewDictionaryModal';
-
 import {useNavigate} from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import AuthContext from '../../context/AuthContext';
@@ -40,7 +37,6 @@ function Home() {
         e.stopPropagation()
         axiosInstance.delete(`/users/${auth.user.user_id}`+"/dictionaries/"+e.currentTarget.getAttribute("dictionary_id")+"/")
             .then(response =>{
-                console.log(response)
                 navigate(0)
             })
             .catch((error) => {
@@ -50,7 +46,6 @@ function Home() {
 
     const navigateToTraining = (e) => {
         e.stopPropagation()
-        console.log(e.currentTarget.getAttribute("dictionary_id"))
         navigate(`/training/${e.currentTarget.getAttribute("dictionary_id")}/`)
     }
     

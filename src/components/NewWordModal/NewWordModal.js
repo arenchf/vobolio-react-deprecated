@@ -1,7 +1,7 @@
 import './NewWordModal.scss'
 import axiosInstance from '../../axios';
-import React, { useEffect, useState, useContext, useRef } from 'react'
-import {faUsersRectangle, faUpload, faPlus,faXmark } from '@fortawesome/free-solid-svg-icons';
+import React, { useEffect, useState} from 'react'
+import {faXmark } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,24 +13,17 @@ function NewWordModal({dictionaryId,toggler}) {
 
     const navigate = useNavigate();
 
-    useEffect(()=>{
-        
-    },[newWord]);
-    // const handleInput = (e) => {
-    //     setUserInput({...userInput,[e.target.name]:e.target.value})
-    // }
+    useEffect(()=>{},[newWord]);
+
     const handleNewWordModalInput = (e) => {
-        console.log(e.target.name)
         setNewWord({...newWord,[e.target.name]:e.target.value})
     };
 
     const handleSubmitNewWord = (e) => {
         e.preventDefault()
-        console.log(newWord)
 
         axiosInstance.post("/dictionaries/"+dictionaryId+"/words/",newWord)
         .then(response=>{
-            console.log(response)
             setNewWord({word:"",translation:"",category:""})
             // navigate(0)
         })
@@ -41,6 +34,7 @@ function NewWordModal({dictionaryId,toggler}) {
 
     function closeNewWordModal() {
         toggler.setNewWordModalToggle(false);
+        navigate(0)
     };
   return (
     <Modal

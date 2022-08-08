@@ -1,11 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React,{useEffect, useState, useContext} from 'react'
+import React,{useEffect, useState} from 'react'
 import {useParams, useNavigate} from 'react-router-dom'
 import axiosInstance from '../../axios'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import './Dictionary.scss'
-import {faPlus,faTrashCan,faPen} from '@fortawesome/free-solid-svg-icons';
+import {faPlus,faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import NewWordModal from '../../components/NewWordModal/NewWordModal'
 import EditWordModal from '../../components/EditWordModal/EditWordModal'
 import InfiniteScroll from 'react-infinite-scroller';

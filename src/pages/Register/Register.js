@@ -1,16 +1,13 @@
-import React,{useContext, useEffect, useState} from 'react'
-// import AuthContext from '../../context/AuthContext';
+import React,{useState} from 'react'
 import axiosInstance from '../../axios';
 import { useNavigate } from 'react-router-dom';
-import AuthContext from '../../context/AuthContext';
-import jwt from 'jwt-decode';
 import "./Register.scss"
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
 function Register() {
 
-    const { user, setUser } = useContext(AuthContext)
+
     const [userInput,setUserInput] = useState({});
     const [errors,setErrors] = useState(null);
     const navigate = useNavigate();
@@ -21,15 +18,7 @@ function Register() {
         e.preventDefault();
 
         axiosInstance.post("/token/create/",userInput).then(response=>{
-          console.log(response)
-          console.log("a")
-            // let data = response.data;
-            // localStorage.setItem('access', data["access"]);
-            // localStorage.setItem('refresh', data["refresh"]);
-
-            // axiosInstance.defaults.headers['Authorization'] = "Bearer "+ data["access"];
-
-            navigate("/dictionaries")
+            navigate("/login")
         }).catch(error=>{
             console.log("ERROR",error);
             if(error.response){
