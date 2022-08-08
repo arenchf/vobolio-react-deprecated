@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-// const baseURL = 'https://api.vobolio.com/api/'
-const baseURL = 'http://127.0.0.1:8000/api/'
+const baseURL = 'https://api.vobolio.com/api/'
+// const baseURL = 'http://127.0.0.1:8000/api/'
 
 const axiosInstance = axios.create({
     baseURL: baseURL,
