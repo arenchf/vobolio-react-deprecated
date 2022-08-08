@@ -72,7 +72,9 @@ export const Flags = {
     "ch":ChinaFlag,
     "fr":FrenchFlag,
     "in":IndianFlag,
-    "jp":JapanFlag
+    "jp":JapanFlag,
+    "pr":PortugalFlag,
+    "kr":KoreanFlag,
 };
 
 

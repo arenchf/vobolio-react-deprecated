@@ -8,12 +8,14 @@ import {LanguageList} from '../../img/Flags';
 import axiosInstance from '../../axios';
 
 import './NewDictionaryModal.scss';
+import AuthContext from '../../context/AuthContext';
 Modal.setAppElement('#root');
 
 function NewDictionaryModal({toggler}) {
 
     
     // const [languageList,setLanguageList] = useState(LanguageList)
+    const auth = useContext(AuthContext)
     const [selectedLanguage,setSelectedLanguage] = useState({})
     const [newDictionary,setNewDictionary] = useState({});
     const navigate = useNavigate()
@@ -36,11 +38,8 @@ function NewDictionaryModal({toggler}) {
 
         console.log("ADDING LANGUAGE",newDictionary)
         
-        axiosInstance.post("/dictionaries/",newDictionary)
-        .then(response=>{
-            console.log(response)
-            // closeNewDictionaryModal()
-            // navigate("/dictionaries",)
+        axiosInstance.post(`/users/${auth.user.user_id}`+"/dictionaries/",newDictionary)
+        .then(_=>{
             navigate(0)
         }).catch(error=>{
             console.log("ERROR",error);

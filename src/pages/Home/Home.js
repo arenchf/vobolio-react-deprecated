@@ -3,7 +3,7 @@ import axiosInstance from '../../axios'
 import './Home.scss'
 import Header from '../../components/Header/Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faUsersRectangle, faUpload, faPlus,faXmark, faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import {faUsersRectangle, faUpload, faPlus,faXmark, faPen, faTrashCan,faTableTennisPaddleBall } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
 
 import {LanguageList, Flags} from '../../img/Flags';
@@ -11,13 +11,14 @@ import NewDictionaryModal from '../../components/NewDictionaryModal/NewDictionar
 
 import {useNavigate} from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
+import AuthContext from '../../context/AuthContext';
 
 
 
 
 function Home() {
     
-
+    const auth = useContext(AuthContext)
     const [loading,setLoading] = useState(true);
     const [dictionaries,setDictionaries] = useState(null);
     const [newDictionaryModalToggle,setNewDictionaryModalToggle] = useState(false);
@@ -25,11 +26,9 @@ function Home() {
 
 
     useEffect(()=>{
-        axiosInstance.get("/dictionaries/").then((response)=>{
-            // console.log("data",response.data)
+        axiosInstance.get(`/users/${auth.user.user_id}`+"/dictionaries/").then((response)=>{
             setDictionaries(response.data)
         })
-        // console.log('dictionaries', dictionaries)
     },[])
 
     function openNewDictionaryModal() {
@@ -39,8 +38,7 @@ function Home() {
 
     const handleDeleteDictionary = (e) => {
         e.stopPropagation()
-        console.log("/dictionaries/"+e.currentTarget.getAttribute("dictionary_id")+"/")
-        axiosInstance.delete("/dictionaries/"+e.currentTarget.getAttribute("dictionary_id")+"/")
+        axiosInstance.delete(`/users/${auth.user.user_id}`+"/dictionaries/"+e.currentTarget.getAttribute("dictionary_id")+"/")
             .then(response =>{
                 console.log(response)
                 navigate(0)
@@ -48,6 +46,12 @@ function Home() {
             .catch((error) => {
                 console.error(error)
             });
+    }
+
+    const navigateToTraining = (e) => {
+        e.stopPropagation()
+        console.log(e.currentTarget.getAttribute("dictionary_id"))
+        navigate(`/training/${e.currentTarget.getAttribute("dictionary_id")}/`)
     }
     
 
@@ -85,7 +89,7 @@ function Home() {
                                         <div className='dictionary-name'>{el.name}</div>
                                     </div> 
                                     <div className='dictionary-right-side'>
-                                        {/* <div title="Edit Dictionary" className='update-dictionary-button'><FontAwesomeIcon icon={faPen}/></div> */}
+                                        <div title="Train Dictionary" onClick={navigateToTraining} dictionary_id={el.id} className='update-dictionary-button'><FontAwesomeIcon icon={faTableTennisPaddleBall}/></div>
                                         <div title="Delete dictionary" onClick={handleDeleteDictionary} dictionary_id={el.id} className='delete-dictionary-button'><FontAwesomeIcon icon={faTrashCan}/></div>
                                     </div> 
                                 </div>

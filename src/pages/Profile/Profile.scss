@@ -1,0 +1,81 @@
+.profile-page{
+    .content{
+        margin: auto;
+        width: fit-content;
+        h2{
+            width: fit-content;
+        }
+        .profile-wrapper{
+            width: max-content;
+            margin: auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 5px;
+            .profile-attr-wrapper{
+                // width: max-content;
+                label{
+                    font-weight: bold;
+                    align-self: flex-start;
+                    display: block;
+                    // margin-top: 10px;
+                    margin-bottom: 5px;
+                    font-weight: bold;
+                    // font-size: 1.1em;
+                    // padding: 0 10px;
+                    .error{
+                        color: var(--danger);
+                    }
+                }
+                .profile-attr{
+                    
+                    input{
+                        display: block;
+                        width: 100%;
+                        align-self: flex-start;
+                        margin-bottom: 20px;
+                    }
+                }
+                
+            }
+            button{
+                // margin-top: 10px;
+    
+                // margin-bottom: 10px;
+                // margin-top: 10px;
+                margin: 10px auto;
+                // align-self: center;
+                // width: 100px;
+                // align-self: center;
+                display: block;
+                padding: 5px;
+                align-self: center;
+                border-radius: 20px;
+                border: 0;
+                background-color: var(--river-bed);
+                color: white;
+                padding: 10px 50px;
+                font-weight: bold;
+                // font-size: 1.1em;
+    
+                cursor: pointer;
+            }
+            button:disabled{
+                background-color: grey;
+                cursor: not-allowed;
+            }
+        }
+        .user-dictionaries{
+            width: max-content;
+            margin: auto;
+            padding: 25px;
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 5px;
+            .learned-words{
+                b{
+                    color: green;
+                }
+            }
+        }
+    }
+}

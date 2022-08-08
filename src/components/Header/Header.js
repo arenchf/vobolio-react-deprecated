@@ -37,7 +37,7 @@ function Header({dictionaries}) {
                         {user?
                         <>
                         <li title='Dictionaries' onClick={()=>{navigate("/dictionaries")}}>Dictionaries</li>
-                        <li title="Training" onClick={()=>{navigate("/training")}}>Training</li>
+                        
                         <li title="My Profile" onClick={()=>{navigate("/profile")}}>My Profile</li>
                         <li title="Logout" onClick={handleLogout}>Logout</li>
                         </>

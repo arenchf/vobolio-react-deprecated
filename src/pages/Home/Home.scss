@@ -26,8 +26,7 @@
             cursor: pointer;
             div.card-wrapper{
                 padding: 15px;
-                
-                
+                overflow: hidden;
                 svg{
                     height: 40px;
                     margin: auto;
@@ -35,10 +34,11 @@
                     color: #ccc;
                 }
                 span{
+                    white-space: nowrap;
                     padding: 5px;
                     display: block;
                     margin: auto;
-                    width: fit-content;
+                    // width: fit-content;
                 }
             }
         }
@@ -56,7 +56,7 @@
     .dictionary-list{
         background-color: var(--chewode-blue);
         padding: 10px;
-        width: 450px;
+        max-width: 450px;
         margin: 20px auto;
         border-radius: 5px;
         display: flex;

@@ -1,0 +1,60 @@
+.training-page{
+    .content{
+        .training-word-wrapper{
+            
+            width: 500px;
+            margin: auto;
+            
+            .word{
+                background-color: white;
+                max-width: 500px;
+                overflow: hidden;
+                border-radius: 5px;
+                margin:auto;
+                padding: 50px;
+                font-weight: bold;
+                text-align: center;
+                box-sizing: border-box;
+                font-size: 2em;
+            }
+            .answers{
+                
+                .answer{
+                    background-color: white;
+                    padding: 10px;
+                    text-align: center;
+                    overflow: hidden;
+                    max-width: 500px;
+                    box-sizing: border-box;
+                    border-radius: 5px;
+                    margin: 5px auto;
+                    cursor: pointer;
+
+                }
+                .wrong-answer{
+                    background-color: red;
+                    animation-name: wrong-answer-color-animation;
+                    animation-duration: 0.2s;
+                }
+                .right-answer{
+                    background-color: greenyellow;
+                    animation-name: right-answer-color-animation;
+                    animation-duration: 0.2s;
+                }
+
+                @keyframes right-answer-color-animation {
+                    0% {background-color: white;}
+                    100% {background-color: greenyellow;}
+                }
+                @keyframes wrong-answer-color-animation {
+                    0% {background-color: white;}
+                    100% {background-color: red;}
+                }
+
+            }
+        }
+    }
+}
+
+
+

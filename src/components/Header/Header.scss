@@ -5,7 +5,8 @@
     
     background-color: var(--chewode-blue);
     .header{
-        width: 1000px;
+        
+        max-width: 1000px;
         margin: auto;
         color: var(--biloba-flower-font);
         padding: 10px 20px;
@@ -145,6 +146,7 @@
         
                     gap: 20px;
                     li{
+                        white-space: nowrap;
                         cursor: pointer;
                     }
                 }

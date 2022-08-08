@@ -11,6 +11,7 @@ import {BrowserRouter,Routes,Route,Navigate,useLocation} from 'react-router-dom'
 import AuthContext from './context/AuthContext'
 import SaveContext from './context/SaveContext'
 import Dictionary from './pages/Dictionary/Dictionary'
+import Training from './pages/Training/Training'
 import NotFound404 from './pages/NotFound404/NotFound404'
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
             <Route path="/dictionaries/:dictionaryId" element={<ProtectedRoute user={user}><Dictionary/></ProtectedRoute>} />
             <Route path="/dictionaries" element={<ProtectedRoute user={user}><Home/></ProtectedRoute>} />
             <Route path="/profile" element={<ProtectedRoute user={user}><Profile/></ProtectedRoute>} />
+            <Route path="/training/:dictionaryId" element={<ProtectedRoute user={user}><Training/></ProtectedRoute>} />
             <Route path="/login" element={<ProtectedRoute user={user} redirect="/dictionaries"><Login></Login></ProtectedRoute>}></Route>
             <Route path="/forget" element={<ProtectedRoute user={user} redirect="/dictionaries"><ForgetPassword></ForgetPassword></ProtectedRoute>}></Route>
             <Route path="/register" element={<ProtectedRoute user={user} redirect="/dictionaries"><Register></Register></ProtectedRoute>}></Route>
