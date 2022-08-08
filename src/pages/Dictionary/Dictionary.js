@@ -101,7 +101,7 @@ function Dictionary() {
             <InfiniteScroll
             pageStart={0}
             loadMore={loadFunc}
-            hasMore={true}
+            hasMore={nextPage}
             loader={<div className="loader" key={0}>Loading ...</div>}>
                 <div className='word-list'>
                     {words.map((el,index)=>{
